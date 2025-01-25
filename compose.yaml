@@ -14,6 +14,18 @@
 #       - /app/node_modules # Ensure node_modules aren't overwritten by the bind mount
 
 services:
+  app:
+    build:
+      context: .
+    image: nextjs-app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./src:/app/src:rw # Mount the source code for live development
+      - /app/node_modules # Ensure node_modules aren't overwritten by the bind mount
+
   db:
     image: postgres:15-alpine
     environment:
