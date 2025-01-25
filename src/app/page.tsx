@@ -1,4 +1,3 @@
-import Image from "next/image";
 import prisma from "../lib/db";
 
 export default async function Home() {
